@@ -24,9 +24,16 @@ public class DigitaluniteTest {
         driver.get("https://www.digitalunite.com/practice-webform-learners");
         driver.findElement(By.id("onetrust-accept-btn-handler")).click();
         Thread.sleep(200);
-        List<WebElement> formFields= driver.findElements(By.className(".form-control"));
-        formFields.get(0).sendKeys("Test Name");
-        formFields.get(1).sendKeys("1234567890");
+
+        driver.findElement(By.id("edit-name")).sendKeys("Faisal Kabir");
+
+        driver.findElement(By.id("edit-number")).sendKeys("01712345678");
+
+        driver.findElement(By.id("edit-date")).sendKeys("04/14/2025");
+
+        driver.findElement(By.id("edit-email")).sendKeys("onlyfaisalkabir@gmail.com");
+
+        driver.findElement(By.id("edit-tell-us-a-bit-about-yourself-")).sendKeys("I'm a automation testing learner.");
 
 
     }
