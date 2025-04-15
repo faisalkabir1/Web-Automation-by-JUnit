@@ -23,9 +23,11 @@ public class DigitaluniteTest {
     @Test
     public void FormSubmit() throws InterruptedException {
         driver.get("https://www.digitalunite.com/practice-webform-learners");
-        driver.findElement(By.id("onetrust-accept-btn-handler")).click();
-        Thread.sleep(200);
 
+        //Handle accept cookies
+        driver.findElement(By.id("onetrust-accept-btn-handler")).click();
+        Thread.sleep(1000);
+        //Find elements of form input fields and give input
         driver.findElement(By.id("edit-name")).sendKeys("Faisal Kabir");
 
         driver.findElement(By.id("edit-number")).sendKeys("01712345678");
@@ -34,28 +36,27 @@ public class DigitaluniteTest {
 
         driver.findElement(By.id("edit-email")).sendKeys("onlyfaisalkabir@gmail.com");
 
-        driver.findElement(By.id("edit-tell-us-a-bit-about-yourself-")).sendKeys("I'm a automation testing learner.");
-
+        driver.findElement(By.id("edit-tell-us-a-bit-about-yourself-")).sendKeys("I'm automation testing learner. I can write test cases and automated test scripts.");
+        //Upload Image
         WebElement uploadElement = driver.findElement(By.id("edit-uploadocument-upload"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
 
         uploadElement.sendKeys("D:\\SQA- Road to SDET\\Web-Automation-JUnit\\Web-Automation-JUnit\\src\\test\\resources\\test.jpg");
-        Thread.sleep(1000);
-
+        Thread.sleep(2000);
+        //Check box click
         WebElement checkBoxElement = driver.findElement(By.cssSelector("label[for='edit-age']"));
         checkBoxElement.click();
 
         // Find the submit button and click it
         WebElement submitButton = driver.findElement(By.id("edit-submit"));
         submitButton.click();
-
-    }
-
-    @AfterAll
-    public static void teardown() {
-        if (driver != null) {
-            driver.quit();
+        //Assertion
+        String confirmationMessage = driver.findElement(By.id("block-pagetitle-2")).getText();
+        Assertions.assertTrue(confirmationMessage.contains("Thank you for your submission!"));
         }
+    @AfterAll
+    public void teardown() {
+        driver.quit();
     }
 }
