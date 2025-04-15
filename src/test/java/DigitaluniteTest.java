@@ -55,6 +55,7 @@ public class DigitaluniteTest {
         String confirmationMessage = driver.findElement(By.id("block-pagetitle-2")).getText();
         Assertions.assertTrue(confirmationMessage.contains("Thank you for your submission!"));
         }
+
     @AfterAll
     public void teardown() {
         driver.quit();
