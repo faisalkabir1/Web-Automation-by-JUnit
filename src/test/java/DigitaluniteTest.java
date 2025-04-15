@@ -32,16 +32,15 @@ public class DigitaluniteTest {
         driver.findElement(By.id("edit-date")).sendKeys("04/14/2025");
 
         driver.findElement(By.id("edit-email")).sendKeys("onlyfaisalkabir@gmail.com");
-
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         driver.findElement(By.id("edit-tell-us-a-bit-about-yourself-")).sendKeys("I'm automation testing learner. I can write test cases and automated test scripts.");
 
         //Upload Image
         WebElement uploadElement = driver.findElement(By.id("edit-uploadocument-upload"));
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         String filePath = "D:\\SQA- Road to SDET\\Web-Automation-JUnit\\Web-Automation-JUnit\\src\\test\\resources\\test.jpg";
         uploadElement.sendKeys(filePath);
-
+        Thread.sleep(3000);
         //Check box click
         WebElement checkBoxElement = driver.findElement(By.cssSelector("label[for='edit-age']"));
         checkBoxElement.click();
