@@ -32,6 +32,7 @@ public class DigitaluniteTest {
         driver.findElement(By.id("edit-date")).sendKeys("04/14/2025");
 
         driver.findElement(By.id("edit-email")).sendKeys("onlyfaisalkabir@gmail.com");
+        //Scroll
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
         driver.findElement(By.id("edit-tell-us-a-bit-about-yourself-")).sendKeys("I'm automation testing learner. I can write test cases and automated test scripts.");
@@ -57,6 +58,7 @@ public class DigitaluniteTest {
 
     @AfterAll
     public void teardown() {
+
         driver.quit();
     }
 }
