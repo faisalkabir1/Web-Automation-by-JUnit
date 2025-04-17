@@ -1,6 +1,5 @@
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import com.github.javafaker.Faker;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.time.Duration;
 import java.util.List;
 
+@DisplayName("Check user registration successfully")
 public class WpeverestTest {
     private static WebDriver driver;
 
@@ -21,25 +21,37 @@ public class WpeverestTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
+    @AfterAll
+    public static void teardown() {
+        driver.quit();
+    }
+
     @Test
     public void RegistrationTest() throws InterruptedException {
+
         driver.get("https://demo.wpeverest.com/user-registration/guest-registration-form/");
+        Faker faker = new Faker();
+        String firstName = faker.name().firstName();
+        String lastName = faker.name().lastName();
+        String email = faker.internet().emailAddress();
+        String phone = faker.phoneNumber().cellPhone();
+        String password = faker.internet().password(12, 16);
         List<WebElement> elements = driver.findElements(By.tagName("input"));
-        elements.get(4).sendKeys("Test"); //firstName
+        elements.get(4).sendKeys(firstName); //firstName
         //Thread.sleep(2000);
-        elements.get(7).sendKeys("Name"); //LastName
-        elements.get(5).sendKeys("name@gmail.com"); //email
+        elements.get(7).sendKeys(lastName); //LastName
+        elements.get(5).sendKeys(email); //email
         elements.get(8).click(); //gender
-        elements.get(6).sendKeys("Abcd@$1234");  //password
-        elements.get(11).click(); //DateofBirth
+        elements.get(6).sendKeys(password);  //password
         Thread.sleep(1000);
+        elements.get(11).click(); //DateofBirth
 
         //Select Month
         List<WebElement> selectMonth = driver.findElements(By.tagName("option"));
         selectMonth.get(254).click();
         Thread.sleep(1000);
         // Select year (input type=number)
-      WebElement yearSelect = driver.findElement(By.className("numInput"));
+        WebElement yearSelect = driver.findElement(By.className("numInput"));
         yearSelect.clear();
         yearSelect.sendKeys("1998");
         //SelectDay
@@ -48,7 +60,7 @@ public class WpeverestTest {
         Thread.sleep(1000);
 
         elements.get(16).sendKeys("Bangladeshi");//Nationality
-        elements.get(14).sendKeys("1916603009");//Phone no
+        elements.get(14).sendKeys(phone);//Phone no
 
         Select country = new Select(driver.findElement(By.id("country_1665629257")));//Country
         country.selectByVisibleText("Bangladesh");
@@ -60,12 +72,10 @@ public class WpeverestTest {
         //Click on submit button
         WebElement submitButton = driver.findElement(By.cssSelector("button.ur-submit-button"));
         submitButton.click();
-
-    }
-
-    @AfterAll
-    public static void teardown() {
-
-       // driver.quit();
+        Thread.sleep(2000);
+        // Assertion
+        String confirmationMessage = driver.findElement(By.id("ur-submit-message-node")).getText();
+        Assertions.assertTrue(confirmationMessage.contains("User successfully registered."));
+        Thread.sleep(2000);
     }
 }
