@@ -10,19 +10,20 @@ import org.openqa.selenium.support.ui.Select;
 import java.time.Duration;
 import java.util.List;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("Check user registration successfully")
 public class WpeverestTest {
-    private static WebDriver driver;
+    WebDriver driver;
 
     @BeforeAll
-    public static void setup() {
+    public void setup() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
     }
 
     @AfterAll
-    public static void teardown() {
+    public void teardown() {
         driver.quit();
     }
 
@@ -44,7 +45,8 @@ public class WpeverestTest {
         elements.get(8).click(); //gender
         elements.get(6).sendKeys(password);  //password
         Thread.sleep(1000);
-        elements.get(11).click(); //DateofBirth
+
+        elements.get(11).click(); //Date of Birth field click
 
         //Select Month
         List<WebElement> selectMonth = driver.findElements(By.tagName("option"));
