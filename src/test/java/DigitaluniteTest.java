@@ -4,12 +4,14 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import java.time.Duration;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("Check the form submitted successfully")
 public class DigitaluniteTest {
     private static WebDriver driver;
+
     @BeforeAll
     public static void setup() {
         driver = new ChromeDriver();
@@ -32,10 +34,12 @@ public class DigitaluniteTest {
         driver.findElement(By.id("edit-date")).sendKeys("04/14/2025");
 
         driver.findElement(By.id("edit-email")).sendKeys("onlyfaisalkabir@gmail.com");
+
+        driver.findElement(By.id("edit-tell-us-a-bit-about-yourself-")).sendKeys("I'm an automation testing learner with a focus on writing clear and effective test cases and automated test scripts. I'm gaining hands-on experience with tools like Selenium, JUnit, and Gradle, and enjoy exploring ways to improve test coverage and efficiency. Passionate about quality assurance, I’m continuously building my skills to contribute to reliable and high-performing software.");
+        Thread.sleep(1000);
         //Scroll
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
-        driver.findElement(By.id("edit-tell-us-a-bit-about-yourself-")).sendKeys("I'm automation testing learner. I can write test cases and automated test scripts.");
 
         //Upload Image
         WebElement uploadElement = driver.findElement(By.id("edit-uploadocument-upload"));
@@ -54,7 +58,7 @@ public class DigitaluniteTest {
         //Assertion
         String confirmationMessage = driver.findElement(By.id("block-pagetitle-2")).getText();
         Assertions.assertTrue(confirmationMessage.contains("Thank you for your submission!"));
-        }
+    }
 
     @AfterAll
     public void teardown() {
