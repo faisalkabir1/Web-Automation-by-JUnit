@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class WebScraping {
+public class WebScrapingTest {
     private static WebDriver driver;
 
     @BeforeAll
@@ -21,7 +21,8 @@ public class WebScraping {
         driver.quit();
     }
     @Test
-    public void WebScrapingTest(){
+    public void DataScrapingTest(){
         driver.get("https://dsebd.org/latest_share_price_scroll_by_value.php");
+
     }
 }
