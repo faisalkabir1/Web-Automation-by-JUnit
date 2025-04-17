@@ -10,10 +10,10 @@ import java.time.Duration;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("Check the form submitted successfully")
 public class DigitaluniteTest {
-    private static WebDriver driver;
+    WebDriver driver;
 
     @BeforeAll
-    public static void setup() {
+    public void setup() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
