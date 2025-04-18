@@ -43,7 +43,7 @@ public class DigitaluniteTest {
 
         //Upload Image
         WebElement uploadElement = driver.findElement(By.id("edit-uploadocument-upload"));
-        String filePath = "D:\\SQA- Road to SDET\\Web-Automation-JUnit\\Web-Automation-JUnit\\src\\test\\resources\\test.jpg";
+        String filePath = System.getProperty("user.dir") + "/src/test/resources/test.jpg";
         uploadElement.sendKeys(filePath);
         Thread.sleep(3000);
         //Check box click
