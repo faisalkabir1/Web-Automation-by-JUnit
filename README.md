@@ -55,7 +55,7 @@ This project contains automated test scripts for:
 
 🎬 **Demo Video**:
 
-📸 **Report Screenshot**:
+📸 **Report Screenshot**: ![img.png](img.png)
 
 ---
 
@@ -83,11 +83,11 @@ gradlew.bat test
 To avoid pushing unnecessary files, include the following in your `.gitignore`:
 
 ```gitignore
-.gradle/
-.idea/
-build/
-logs/
-*.iml
+.gradle
+.idea
+build
+gradle
+logs
 ```
 
 ### 🧑‍💻 Author
