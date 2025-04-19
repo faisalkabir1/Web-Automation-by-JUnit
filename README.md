@@ -7,6 +7,14 @@ This project contains automated test scripts for:
 3. Web Scraping from DSE (Dhaka Stock Exchange) Live Share Price Table
 
 ---
+### 🚀 Technologies Used
+
+- **Java** – Core programming language for automation
+- **JUnit 5** – Test framework used for structuring and running tests
+- **Selenium WebDriver** – For browser automation and web interaction
+- **Gradle** – Build automation tool
+- **IntelliJ IDEA** – Preferred IDE for development
+---
 
 ## ✅ Test Case Descriptions
 
@@ -23,7 +31,12 @@ This project contains automated test scripts for:
 
 🎬 **Demo Video**:
 
-📸 **Report Screenshot**:![img_2.png](img_2.png)
+https://github.com/user-attachments/assets/61e7c02c-d006-4dfd-b062-b214e28f9bb7
+
+
+
+📸 **Report Screenshot**: ![img_2](https://github.com/user-attachments/assets/6200ed7f-c5ca-4b42-b589-299127104ed8)
+
 
 ---
 
@@ -37,9 +50,14 @@ This project contains automated test scripts for:
 - Submit the form
 - Assert successful registration
 
-🎬 **Demo Video**:
+🎬 **Demo Video**: 
 
-📸 **Report Screenshot**: ![img_1.png](img_1.png)
+https://github.com/user-attachments/assets/789dd104-3b78-4afa-8dae-40b9eb085c9a
+
+
+
+📸 **Report Screenshot**: ![img_1](https://github.com/user-attachments/assets/5cb15384-e9d1-4f85-8271-d22035cd1c88)
+
 
 ---
 
@@ -55,7 +73,12 @@ This project contains automated test scripts for:
 
 🎬 **Demo Video**:
 
-📸 **Report Screenshot**: ![img.png](img.png)
+https://github.com/user-attachments/assets/a79110f2-3bba-4c27-8696-290014b0237e
+
+
+
+📸 **Report Screenshot**: ![img](https://github.com/user-attachments/assets/b0275af6-9bc8-4952-b618-64f1b0468470)
+
 
 ---
 
