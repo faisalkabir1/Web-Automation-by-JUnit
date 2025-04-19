@@ -1,8 +1,1 @@
 rootProject.name = 'Web-Automation-JUnit'
-gradleEnterprise {
-    buildScan {
-        publishAlways() // or remove this if you don't want scans
-        termsOfServiceUrl = 'https://gradle.com/terms-of-service'
-        termsOfServiceAgree = 'yes'
-    }
-}
