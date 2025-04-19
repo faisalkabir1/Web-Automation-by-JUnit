@@ -23,7 +23,7 @@ This project contains automated test scripts for:
 
 🎬 **Demo Video**:
 
-📸 **Report Screenshot**:
+📸 **Report Screenshot**:![img_2.png](img_2.png)
 
 ---
 
@@ -39,7 +39,7 @@ This project contains automated test scripts for:
 
 🎬 **Demo Video**:
 
-📸 **Report Screenshot**:
+📸 **Report Screenshot**: ![img_1.png](img_1.png)
 
 ---
 
