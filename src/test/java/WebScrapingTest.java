@@ -23,19 +23,29 @@ public class WebScrapingTest {
     public static void teardown() {
         driver.quit();
     }
+
     @Test
     public void DataScrapingTest() {
         driver.get("https://dsebd.org/latest_share_price_scroll_by_value.php");
+
+
+        List<WebElement> headertext = driver.findElements(By.xpath("//th[not(contains(@class, 'floatThead-col'))]"));
+
+        for (WebElement header : headertext) {
+            String Allheadertext = header.getText().trim();
+            if (!headertext.isEmpty()) {
+                System.out.print(Allheadertext + " ");
+            }
+        }
+
         WebElement table = driver.findElement(By.className("table-responsive"));
         List<WebElement> allRows = table.findElements(By.tagName("tr"));
-        int i = 0;
         for (WebElement row : allRows) {
             List<WebElement> cells = row.findElements(By.tagName("td"));
             for (WebElement cell : cells) {
-                i++;
-                System.out.println("num[" + i + "] " + cell.getText());
-
+                System.out.print(cell.getText() + " ");
             }
+            System.out.println();
         }
     }
 }
